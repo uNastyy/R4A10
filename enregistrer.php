@@ -23,3 +23,5 @@ function enregistrer($pseudo, $phrase, $timestamp) {
         die("Erreur d'insertion dans la base de données: " . $e->getMessage());
     }
 }
+
+
