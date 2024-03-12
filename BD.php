@@ -1,5 +1,5 @@
 <?php
-class BDD
+class BD
 {
     private static $_instance = null;
     private $linkpdo;
@@ -16,13 +16,13 @@ class BDD
     {
 
         if (is_null(self::$_instance)) {
-            self::$_instance = new BDD();
+            self::$_instance = new BD();
         }
 
         return self::$_instance;
     }
 
-    public function getBDD()
+    public function getBD()
     {
         return $this->linkpdo;
     }
