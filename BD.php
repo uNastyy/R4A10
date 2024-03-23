@@ -7,8 +7,9 @@ class BD
     public function __construct()
     {
         $this->linkpdo = new PDO(
-            "mysql:host=localhost;dbname=projetR4A10;charset=utf8",
-            "root"
+            "mysql:host=localhost;dbname=projetr4a10;charset=utf8",
+            "root",
+            ""
         );
     }
 
@@ -27,4 +28,3 @@ class BD
         return $this->linkpdo;
     }
 }
-?>

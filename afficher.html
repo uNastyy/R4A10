@@ -7,170 +7,52 @@
   <link rel="stylesheet" href="style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="icons8-messaging-50.png" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript" src="jquery_afficher.js"></script>
+  <script type="text/javascript" src="ajax_enregistrer.js"></script>
   <title>Messagerie</title>
+  <script>
+    $(document).ready(function() {
+      $('form').on('submit', function(e) {
+          e.preventDefault();
+  
+          var username = $('#username').val();
+          var message = $('#sendmessage').val();
+  
+          go(username, message);
+
+          $('#username').val('');
+          $('#sendmessage').val('');
+          
+          $('.messages-container').load('get_messages.php');
+      });
+  });
+  </script>
 </head>
 
 <body>
-  <form action="enregistrer.php?" method="post">
     <div class="login-box">
       <h2>Messagerie</h2>
-      <div class="user-box">
-        <p>Username : </p>
-        <input type="text" id="username" name="username" required />
-      </div>
     </div>
 
     <div class="messages-container">
-      <div>
-        <div class="message">
-          <p>MessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessage</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
+      
+        <!--<div class="message">
+          <p class="contenu">MessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessage</p>
+          <span class="userPseudo">Utilisateur1</span> |
+          <span class="horaire">01/01/2021</span>
         </div>
-      </div>
-      <hr>
+      <hr>-->
 
-      <div>
-        <div class="message">
-          <p>Message 2</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
-        </div>
-      </div>
-      <hr>
-
-      <div>
-        <div class="message">
-          <p>Message 1</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
-        </div>
-      </div>
-      <hr>
-
-      <div>
-        <div class="message">
-          <p>Message 2</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
-        </div>
-      </div>
-      <hr>
-
-      <div>
-        <div class="message">
-          <p>Message 1</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
-        </div>
-      </div>
-      <hr>
-
-      <div>
-        <div class="message">
-          <p>Message 2</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
-        </div>
-      </div>
-      <hr>
-
-      <div>
-        <div class="message">
-          <p>Message 1</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
-        </div>
-      </div>
-      <hr>
-
-      <div>
-        <div class="message">
-          <p>Message 2</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
-        </div>
-      </div>
-      <hr>
-
-      <div>
-        <div class="message">
-          <p>Message 1</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
-        </div>
-      </div>
-      <hr>
-
-      <div>
-        <div class="message">
-          <p>Message 2</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
-        </div>
-      </div>
-      <hr>
-
-      <div>
-        <div class="message">
-          <p>Message 1</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
-        </div>
-      </div>
-      <hr>
-
-      <div>
-        <div class="message">
-          <p>Message 2</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
-        </div>
-      </div>
-      <hr>
-
-      <div>
-        <div class="message">
-          <p>Message 1</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
-        </div>
-      </div>
-      <hr>
-
-      <div>
-        <div class="message">
-          <p>Message 2</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
-        </div>
-      </div>
-      <hr>
-
-      <div>
-        <div class="message">
-          <p>Message 0</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
-        </div>
-      </div>
-      <hr>
-
-      <div>
-        <div class="message">
-          <p>Message 2</p>
-          <span>Utilisateur1</span> |
-          <span>01/01/2021</span>
-        </div>
-      </div>
-      <hr>
+    </div>
+    <form>
       <div class="send">
         <br>
-        <input id="send-message" name="message" type="text" class="choice-button retour" placeholder="" required />
-        <button id="send-button"type="button" class="btn btn-primary">Send <span class="bi bi-send"></span></button>
+        <input type="text" id="username" name="username" placeholder="Votre nom d'utilisateur..." required/>
+        <input id="sendmessage" name="sendmessage" type="text" class="choice-button retour" placeholder="Votre message..." required />
+        <button id="send-button" type="submit" class="btn btn-primary">Send </button>
       </div>
-  </form>
-  </div>
+    </form>
 </body>
 
 </html>

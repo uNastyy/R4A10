@@ -29,14 +29,14 @@ body {
   color: #fff;
 }
 
-input[type="text"]:not(#send-message):focus {
+input[type="text"]:not(#sendmessage):focus {
   outline: none;
   background-color: #eae7ddc1;
   border: 1px solid #f0f0f0;
   color: #99775C;
 }
 
-input[type="text"]:not(#send-message) {
+input[type="text"]:not(#sendmessage) {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,7 +114,7 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
 }
 
-.send #send-message {
+.send #sendmessage {
   padding-top: 10px;
 }
 

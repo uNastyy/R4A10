@@ -2,26 +2,21 @@
 include_once("BD.php");
 $BD = new BD();
 
-$pseudo = $_POST['pseudo'];
-$phrase = $_POST['phrase'];
+$pseudo = $_GET['username']; 
+$phrase = $_GET['sendmessage'];
 
 $timestamp = time();
+global $BD;
+try {
+    $sql = "INSERT INTO chatJS (contenu, userPseudo, horaire) VALUES (:contenu, :userPseudo, :horaire)";
+    $stmt = $BD->getBD()->prepare($sql);
 
-function enregistrer($pseudo, $phrase, $timestamp) {
-    global $BD;
-    try {
-        $sql = "INSERT INTO chatJS (contenu, userPseudo, horaire) VALUES (:contenu, :userPseudo, :horaire)";
-        $stmt = $BD->getBD()->prepare($sql);
+    $stmt->bindParam(':contenu', $phrase);
+    $stmt->bindParam(':userPseudo', $pseudo);
+    $stmt->bindParam(':horaire', $timestamp);
 
-        $stmt->bindParam(':contenu', $pseudo);
-        $stmt->bindParam(':userPseudo', $phrase);
-        $stmt->bindParam(':horaire', $timestamp);
+    $stmt->execute();
 
-        $stmt->execute();
-
-    } catch (PDOException $e) {
-        die("Erreur d'insertion dans la base de données: " . $e->getMessage());
-    }
+} catch (PDOException $e) {
+    echo "<script>alert('Erreur d'insertion :" . $e->getMessage() . "');</script>";
 }
-
-
