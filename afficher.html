@@ -13,6 +13,7 @@
   <title>Messagerie</title>
   <script>
     $(document).ready(function() {
+      // Load the messages when the page loads  
       $('form').on('submit', function(e) {
           e.preventDefault();
   
@@ -20,18 +21,21 @@
           var message = $('#sendmessage').val();
   
           go(username, message);
-
+  
           $('#username').val('');
           $('#sendmessage').val('');
-          
-          $('.messages-container').load('get_messages.php');
       });
+  
+      // Reload the messages every 5 seconds
+      setInterval(function() {
+          $('.messages-container').load('get_messages.php');
+      }, 2000);
   });
   </script>
 </head>
 
 <body>
-    <div class="login-box">
+    <div class="title-box">
       <h2>Messagerie</h2>
     </div>
 
@@ -48,11 +52,10 @@
     <form>
       <div class="send">
         <br>
-        <input type="text" id="username" name="username" placeholder="Votre nom d'utilisateur..." required/>
-        <input id="sendmessage" name="sendmessage" type="text" class="choice-button retour" placeholder="Votre message..." required />
-        <button id="send-button" type="submit" class="btn btn-primary">Send </button>
+        <input id="username" name="username" type="text" placeholder="Votre nom d'utilisateur..." required/>
+        <input id="sendmessage" name="sendmessage" type="text" placeholder="Votre message..." required />
+        <button id="send-button" type="submit" class="btn btn-primary"><i class="bi bi-send">Envoyer</i></button>
       </div>
     </form>
 </body>
-
 </html>
