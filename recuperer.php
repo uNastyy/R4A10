@@ -10,6 +10,4 @@ function getLast10()
     return $req->fetchAll(PDO::FETCH_ASSOC);
 }
 
-
-
 echo json_encode(getLast10());
