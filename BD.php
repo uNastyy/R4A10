@@ -7,9 +7,9 @@ class BD
     public function __construct()
     {
         $this->linkpdo = new PDO(
-            "mysql:host=localhost;dbname=projetr4a10;charset=utf8",
-            "root",
-            ""
+            "mysql:host=mysql-unastyy.alwaysdata.net;dbname=unastyy_chatjs;charset=utf8",
+            "unastyy",
+            '$iutinfo'
         );
     }
 

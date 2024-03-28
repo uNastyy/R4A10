@@ -3,6 +3,7 @@ var list = [];
 $(document).ready(function() {
     // Appel de la fonction pour récupérer les messages
     recupererMessages();
+    console.log("coucou");
 });
 
 
